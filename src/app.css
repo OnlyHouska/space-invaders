@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.popup__window {
+  background: rgba(0, 0, 0, .95);
+  border: white 2px solid;
+  position: absolute;
+  padding: 16px 48px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  top: 176px;
+  height: 320px;
+}
+
+.popup__window--game {
+  height: 448px;
+  width: 512px;
+}
