@@ -77,18 +77,19 @@
 		if (lockedControls) return;
 		if (!player) return;
 		let playerPos = parseFloat(player.style.left) || 0;
-		if (e.key === 'd' || e.key === 'ArrowRight') {
+		if (e.key === 'd') {
 			if (playerPos < 435) player.style.left = `${playerPos + 5}px`;
 			if (gamePaused) {
 				startGame();
 			}
-		} else if (e.key === 'a' || e.key === 'ArrowLeft') {
+		}
+		if (e.key === 'a') {
 			if (playerPos > 0) player.style.left = `${playerPos - 5}px`;
 			if (gamePaused) {
 				startGame();
 			}
 		}
-		if (e.key === ' ' || e.key === 'Spacebar') {
+		if (e.key === ' ') {
 			let shotByPlayer: boolean = true;
 			let position: number = getProjectilePosition();
 			if (gamePaused) {
