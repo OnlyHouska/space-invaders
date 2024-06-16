@@ -1,7 +1,8 @@
+export let version: string = 'v. 0.1.1';
+
 export let defaultColumns = 11;
 export let defaultRows = 4;
 
-export let version: string = 'v. 0.1.1';
 export let invadersColumns: number = defaultColumns;
 export let invadersRows: number = defaultRows;
 
@@ -17,7 +18,8 @@ export function setCols(newCols: number): void {
 export enum Type {
 	'highscores',
 	'settings',
-	'game'
+	'game',
+	'updateNotes'
 }
 
 export const playerWidth: number = 40;

@@ -53,7 +53,7 @@
 	let board: HTMLDivElement;
 </script>
 
-<div bind:this={board} class="popup__window">
+<div bind:this={board} class="popup_window">
 	<Close {close} />
 
 	<h2 class="mb-8">Settings</h2>

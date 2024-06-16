@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	export let board: HTMLDivElement;
+	export let board: HTMLElement;
 	let moveButton: HTMLDivElement;
 	let offsetX: number;
 	let offsetY: number;

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.popup__window {
+.popup_window {
   background: rgba(0, 0, 0, .95);
   border: white 2px solid;
   position: absolute;
@@ -14,7 +14,7 @@
   height: 320px;
 }
 
-.popup__window--game {
+.game_window {
   height: 448px;
   width: 512px;
 }

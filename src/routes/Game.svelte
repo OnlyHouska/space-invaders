@@ -202,7 +202,7 @@
 	}
 </script>
 
-<div class="popup__window popup__window--game" bind:this={board}>
+<div class="popup__window game_window" bind:this={board}>
 	<StartupAnimation />
 	<header class="justify-between flex flex-row">
 		<h1>SCORE: {score.toString().padStart(4, '0')}</h1>
