@@ -40,15 +40,11 @@
 			on:click={toggleGamePopup}
 			class="hover:text-yellow-100 transition-all w-fit m-auto">Play</button
 		>
-		<div class="relative text-white/30">
-			<img class="absolute h-full w-full" src={lock} alt="locked" />
-			<button
-				disabled
-				bind:this={settingsButton}
-				on:click={toggleSettingsPopup}
-				class="hover:text-yellow-100 transition-all w-fit">Settings</button
-			>
-		</div>
+		<button
+			bind:this={settingsButton}
+			on:click={toggleSettingsPopup}
+			class="hover:text-yellow-100 transition-all w-fit m-auto">Settings</button
+		>
 		<div class="relative text-white/30">
 			<img class="absolute h-full w-full" src={lock} alt="locked" />
 			<button
