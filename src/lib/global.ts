@@ -1,3 +1,19 @@
+export let defaultColumns = 11;
+export let defaultRows = 4;
+
+export let version: string = 'v. 0.1.1';
+export let invadersColumns: number = defaultColumns;
+export let invadersRows: number = defaultRows;
+
+export function setRows(newRows: number): void {
+	if (newRows == 0) return;
+	invadersRows = newRows;
+}
+export function setCols(newCols: number): void {
+	if (newCols == 0) return;
+	invadersColumns = newCols;
+}
+
 export enum Type {
 	'highscores',
 	'settings',

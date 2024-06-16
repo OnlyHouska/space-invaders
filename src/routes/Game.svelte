@@ -8,7 +8,7 @@
 	import { Elements, gameHeight, isThereProjectile, playerWidth } from '$lib/global';
 	import { isProjectile } from '$lib/stores';
 	import StartupAnimation from './components/startupAnimation.svelte';
-	import { lockedControls, Controls } from '$lib/global';
+	import { lockedControls, Controls, invadersColumns, invadersRows } from '$lib/global';
 	import Endscreen from './Endscreen.svelte';
 
 	let board: HTMLDivElement;
@@ -18,8 +18,6 @@
 
 	let gamePaused: boolean = true;
 	let score: number = 0;
-	let invadersColumns: number = 11;
-	let invadersRows: number = 4;
 	let totalInvaders: number = invadersColumns * invadersRows;
 	let currentInvaders: number = totalInvaders;
 	let checkCollisions: any;
