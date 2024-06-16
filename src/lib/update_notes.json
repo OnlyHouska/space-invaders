@@ -3,5 +3,9 @@
     "Added controls to the settings",
     "Added option to change the amount of invaders",
     "Added udpate notes"
+  ],
+  "0.1.2": [
+    "Fix: Game window has now right styling and isn't broken",
+    "Fix: Rocket couldn't shoot"
   ]
 }
