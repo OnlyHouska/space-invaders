@@ -3,7 +3,7 @@
 	import Highscores from './Highscores.svelte';
 	import Settings from './Settings.svelte';
 	import Game from './Game.svelte';
-	import UpdateNotes from './components/update_notes.svelte';
+	import UpdateNotes from './components/updateNotes.svelte';
 	export let popupType: Type;
 	export let close: () => void;
 	let popupWindow: HTMLDivElement;

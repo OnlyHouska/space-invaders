@@ -24,7 +24,7 @@
 		{#each reversedVersions as ver}
 			<div class="flex flex-col gap-2">
 				<h2 class="version">
-					Version {ver}
+					Update {ver}
 					{#if ver == strippedVersion}(Latest){/if}:
 				</h2>
 				<div>

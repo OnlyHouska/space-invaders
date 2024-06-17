@@ -13,7 +13,7 @@
     "Modified responsivity on smaller devices",
     "Added highscores"
   ],
-  "0.1.4": [
+  "0.1.4" : [
     "Removed move button on small devices",
     "Added confirmation for score resetting"
   ]
