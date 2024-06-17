@@ -53,7 +53,7 @@
 	let board: HTMLDivElement;
 </script>
 
-<div bind:this={board} class="popup_window">
+<div bind:this={board} class="popup_window" id="settings">
 	<Close {close} />
 
 	<h2 class="mb-8">Settings</h2>
@@ -125,6 +125,10 @@
 </div>
 
 <style>
+	.popup_window {
+		left: 80%;
+		top: 10%;
+	}
 	#keyboard_button,
 	#shoot_button {
 		border: white 2px solid;

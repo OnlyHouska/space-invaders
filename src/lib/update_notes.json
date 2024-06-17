@@ -6,6 +6,7 @@
   ],
   "0.1.2": [
     "Fix: Game window has now right styling and isn't broken",
-    "Fix: Rocket couldn't shoot"
+    "Fix: Rocket couldn't shoot",
+    "Added layout snap button"
   ]
 }

@@ -2,6 +2,7 @@
 	//IMPORT components
 	import Main from './Main.svelte';
 	import Version from './components/version.svelte';
+	import Layout from './components/layout.svelte';
 </script>
 
 <svelte:head>
@@ -9,6 +10,7 @@
 </svelte:head>
 
 <div>
+	<Layout />
 	<Main />
 	<Version />
 </div>

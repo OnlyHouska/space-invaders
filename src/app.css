@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  top: 176px;
+  top: 25%;
+  left: 5%;
   height: 320px;
 }
 

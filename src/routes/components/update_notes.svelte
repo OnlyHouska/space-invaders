@@ -10,7 +10,7 @@
 	let strippedVersion = version.replace('v. ', '');
 </script>
 
-<div bind:this={board} class="popup_window overflow-y-auto">
+<div bind:this={board} class="popup_window overflow-y-auto" id="updateNotes">
 	<Close {close} />
 	<h1>Update notes</h1>
 	<div class="flex flex-col mt-3 gap-3">
@@ -32,6 +32,10 @@
 </div>
 
 <style>
+	.popup_window {
+		left: 52.3%;
+		top: 50%;
+	}
 	.version {
 		color: rgba(255, 255, 255, 0.6);
 		text-decoration: underline;
