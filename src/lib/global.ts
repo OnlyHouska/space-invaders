@@ -1,4 +1,4 @@
-export let version: string = 'v. 0.1.1';
+export let version: string = 'v. 0.1.2';
 
 export let defaultColumns = 11;
 export let defaultRows = 4;
@@ -35,7 +35,9 @@ export let Controls = {
 export let isThereProjectile = (): boolean => {
 	if (document.getElementById('player-projectile')) {
 		return true;
-	} else return false;
+	} else {
+		return false;
+	}
 };
 
 export function gameHeight(): number {
@@ -46,7 +48,8 @@ export function gameHeight(): number {
 //FUNCTION Detect a collision of elements
 export let Elements = {
 	//from https://gist.github.com/yckart/7177551
-	collide: function (el1: HTMLElement, el2: any) {
+	collide: function (el1: HTMLElement, el2: HTMLElement | null) {
+		if (!el2 || !el1) return;
 		let rect1 = el1.getBoundingClientRect();
 		let rect2 = el2.getBoundingClientRect();
 
