@@ -50,4 +50,8 @@
 		height: fit-content;
 		padding-bottom: 30px;
 	}
+
+	button:hover {
+		color: black;
+	}
 </style>
