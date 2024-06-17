@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { setCookie } from '$lib/cookies';
 	import { Controls } from '$lib/global';
+	import { playerName } from '$lib/stores';
 
 	let board: HTMLElement;
 	export let gameOver: boolean;
@@ -9,6 +11,8 @@
 	function restart() {
 		location.reload();
 	}
+
+	setCookie($playerName ?? '', score.toString().padStart(4, '0'));
 </script>
 
 <div class="h-full z-50" bind:this={board}>

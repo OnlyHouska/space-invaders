@@ -20,7 +20,6 @@ export class Projectile {
 		this.projectile.setAttribute('id', this.shotByPlayer ? 'player-projectile' : 'projectile');
 		this.projectile.className = 'z-0 h-7 w-1 bg-white absolute';
 		this.projectile.style.left = this.xPos + 'px';
-		console.log(this.projectile);
 
 		if (this.enemies && this.gameBoard && this.projectile) {
 			if (this.shotByPlayer) {

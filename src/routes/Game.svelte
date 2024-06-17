@@ -6,10 +6,12 @@
 	import Invader from './components/invader.svelte';
 	import playerImage from '$lib/assets/rocket.png';
 	import { Elements, gameHeight, isThereProjectile, playerWidth } from '$lib/global';
-	import { isProjectile } from '$lib/stores';
+	import { isProjectile, playerName } from '$lib/stores';
 	import StartupAnimation from './components/startupAnimation.svelte';
 	import { lockedControls, Controls, invadersColumns, invadersRows } from '$lib/global';
 	import Endscreen from './Endscreen.svelte';
+	import ChangeName from './components/changeName.svelte';
+	import { get } from 'svelte/store';
 
 	let board: HTMLDivElement;
 	let player: HTMLDivElement;
@@ -41,7 +43,7 @@
 		main();
 	});
 
-	$: if (isProjectile) {
+	$: if (get(isProjectile)) {
 		startCollisionCheck();
 	} else {
 		stopCollisionCheck();
@@ -50,7 +52,7 @@
 	function main(): void {
 		document.addEventListener('keydown', movePlayer);
 
-		if (!enemies.style.left) {
+		if (enemies && !enemies.style.left) {
 			enemies.style.left = invaderStep + 'px';
 		}
 
@@ -202,28 +204,29 @@
 	}
 </script>
 
-<div class="popup_window game_window" bind:this={board} id="gameWindow">
-	<StartupAnimation />
-	<header class="justify-between flex flex-row">
-		<h1>SCORE: {score.toString().padStart(4, '0')}</h1>
-		<Close {close} />
-	</header>
-	<div id="enemies" bind:this={enemies} class="flex flex-col top-10 gap-5 w-fit absolute">
-		{#each Array.from({ length: invadersRows }, (_, i) => i) as _y}
-			<div class="flex flex-row mt-4">
-				{#each Array.from({ length: invadersColumns }, (_, i) => i) as x}
-					<Invader id={x} />
-				{/each}
-			</div>
-		{/each}
-	</div>
-	<div bind:this={playerContainer}>
-		<div bind:this={player} class="absolute bottom-0 mb-6 left-0 mx-4 z-10">
-			<img style="width: {playerWidth}px;" src={playerImage} alt="player" />
+{#if $playerName === null}
+	<ChangeName />
+{:else}
+	<div class="popup_window game_window" bind:this={board} id="gameWindow">
+		<StartupAnimation />
+		<header class="justify-between flex flex-row">
+			<h1>SCORE: {score.toString().padStart(4, '0')}</h1>
+			<Close {close} />
+		</header>
+		<div id="enemies" bind:this={enemies} class="flex flex-col top-10 gap-5 w-fit absolute">
+			{#each Array.from({ length: invadersRows }, (_, i) => i) as _y}
+				<div class="flex flex-row mt-4">
+					{#each Array.from({ length: invadersColumns }, (_, i) => i) as x}
+						<Invader id={x} />
+					{/each}
+				</div>
+			{/each}
 		</div>
+		<div bind:this={playerContainer}>
+			<div bind:this={player} class="absolute bottom-0 mb-6 left-0 mx-4 z-10">
+				<img style="width: {playerWidth}px;" src={playerImage} alt="player" />
+			</div>
+		</div>
+		<Move {board} />
 	</div>
-	<Move {board} />
-</div>
-
-<style>
-</style>
+{/if}

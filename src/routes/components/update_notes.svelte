@@ -27,7 +27,7 @@
 					Version {ver}
 					{#if ver == strippedVersion}(Latest){/if}:
 				</h2>
-				<div>w
+				<div>
 					{#each typedUpdateNotes[ver] as note}
 						<p>{note}</p>
 					{/each}

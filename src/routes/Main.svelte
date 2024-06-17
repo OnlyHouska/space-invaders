@@ -4,6 +4,7 @@
 	import Popup from './Window.svelte';
 	import { Type } from '$lib/global';
 	import Alert from './components/alert.svelte';
+	import { playerName } from '$lib/stores';
 
 	let showHighscores: boolean = false;
 	let showSettings: boolean = false;
@@ -23,6 +24,7 @@
 	function toggleGamePopup(): void {
 		if (window.innerWidth < 768) new Alert({ target: document.body });
 		else {
+			$playerName = null;
 			showGame = !showGame;
 			playButton.blur();
 		}
@@ -45,15 +47,11 @@
 			on:click={toggleSettingsPopup}
 			class="hover:text-yellow-100 transition-all w-fit m-auto">Settings</button
 		>
-		<div class="relative text-white/30">
-			<img class="absolute h-full w-full" src={lock} alt="locked" />
-			<button
-				disabled
-				bind:this={highscoresButton}
-				on:click={toggleHighscoresPopup}
-				class="hover:text-yellow-100 transition-all w-fit">Highscores</button
-			>
-		</div>
+		<button
+			bind:this={highscoresButton}
+			on:click={toggleHighscoresPopup}
+			class="hover:text-yellow-100 transition-all w-fit">Highscores</button
+		>
 		<button
 			on:click={() => {
 				alert('redirect to portofilo');

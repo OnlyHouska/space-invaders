@@ -10,6 +10,7 @@
     "Added layout snap button"
   ],
   "0.1.3": [
-    "Modified responsivity on smaller devices"
+    "Modified responsivity on smaller devices",
+    "Added highscores"
   ]
 }

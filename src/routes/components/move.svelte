@@ -18,6 +18,7 @@
 	}
 
 	function onMouseDown(e: MouseEvent) {
+		if (!board) return;
 		isDragging = true;
 		const rect = board.getBoundingClientRect();
 		offsetX = e.clientX - rect.left;
@@ -25,6 +26,7 @@
 	}
 
 	function onMouseMove(e: MouseEvent) {
+		if (!board) return;
 		if (isDragging) {
 			board.style.left = e.clientX - offsetX + 'px';
 			board.style.top = e.clientY - offsetY + 'px';
