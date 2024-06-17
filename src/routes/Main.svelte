@@ -22,7 +22,11 @@
 		settingsButton.blur();
 	}
 	function toggleGamePopup(): void {
-		if (window.innerWidth < 768) new Alert({ target: document.body });
+		if (window.innerWidth < 768)
+			new Alert({
+				target: document.body,
+				props: { message: "I'm sorry, you can't play this game on this screen size" }
+			});
 		else {
 			$playerName = null;
 			showGame = !showGame;
@@ -40,23 +44,23 @@
 		<button
 			bind:this={playButton}
 			on:click={toggleGamePopup}
-			class="hover:text-yellow-100 transition-all w-fit m-auto">Play</button
+			class="w-fit m-auto">Play</button
 		>
 		<button
 			bind:this={settingsButton}
 			on:click={toggleSettingsPopup}
-			class="hover:text-yellow-100 transition-all w-fit m-auto">Settings</button
+			class="w-fit m-auto">Settings</button
 		>
 		<button
 			bind:this={highscoresButton}
 			on:click={toggleHighscoresPopup}
-			class="hover:text-yellow-100 transition-all w-fit">Highscores</button
+			class="w-fit">Highscores</button
 		>
 		<button
 			on:click={() => {
 				alert('redirect to portofilo');
 			}}
-			class="hover:text-yellow-100 transition-all w-fit m-auto">Exit</button
+			class="w-fit m-auto">Exit</button
 		>
 	</div>
 	{#if showHighscores}

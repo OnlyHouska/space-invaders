@@ -1,8 +1,19 @@
 <script lang="ts">
 	import Close from './close.svelte';
 	import Move from './move.svelte';
+	import { onMount } from 'svelte';
 
 	let alert: HTMLDivElement;
+	let buttonsContainer: HTMLDivElement;
+
+	export let message: string;
+	export let buttons: HTMLButtonElement[] | null = null;
+
+	onMount(() => {
+		buttons?.forEach((button: HTMLButtonElement) => {
+			buttonsContainer.appendChild(button);
+		});
+	});
 
 	function close() {
 		alert.remove();
@@ -11,10 +22,11 @@
 
 <div class="px-4 py-2" id="alert" bind:this={alert}>
 	<Close {close} />
-	<div>
+	<div class="flex flex-col gap-4">
 		<h1 class="text-xs text-red-600 text-center">
-			I'm sorry, you can't play this game on this screen size
+			{message}
 		</h1>
+		<div class="flex felx-row gap-2 text-sm jsutify-center m-auto" bind:this={buttonsContainer}></div>
 	</div>
 	<Move board={alert} />
 </div>

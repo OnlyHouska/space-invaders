@@ -9,6 +9,15 @@
   }
 }
 
+@media only screen and (min-width: 768px) {
+  button {
+    transition: all .2s;
+  }
+  button:hover {
+    color: rgb(254 249 195);
+  }
+}
+
 .popup_window {
   background: rgba(0, 0, 0, .95);
   border: white 2px solid;

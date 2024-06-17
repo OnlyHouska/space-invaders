@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Move from './components/move.svelte';
 	import Close from './components/close.svelte';
+	import Alert from './components/alert.svelte';
 
 	export let close: () => void;
 
@@ -9,6 +10,27 @@
 	let highscores: () => string[] = (): string[] => {
 		return document.cookie.split(';');
 	};
+
+	let yesButton: HTMLButtonElement = document.createElement('button');
+	let noButton: HTMLButtonElement = document.createElement('button');
+	yesButton.textContent = 'Yes';
+	noButton.textContent = 'No';
+	yesButton.classList.add('hover:text-green-500');
+	noButton.classList.add('hover:text-red-500');
+	yesButton.onclick = resetHighscores;
+	noButton.onclick = () => {
+		document.getElementById('alert')?.remove();
+	};
+
+	function showAlert(): void {
+		let _alert = new Alert({
+			target: document.body,
+			props: {
+				message: 'Are you sure you want to reset highscores?',
+				buttons: [yesButton, noButton]
+			}
+		});
+	}
 
 	function resetHighscores(): void {
 		var Cookies = document.cookie.split(';');
@@ -27,9 +49,7 @@
 			<p>{score.replace('=', ': ')}</p>
 		{/each}
 	</div>
-	<button on:click={resetHighscores} class="absolute left-0 bottom-0 text-xs ml-2 mb-2"
-		>Reset</button
-	>
+	<button on:click={showAlert} class="absolute left-0 bottom-0 text-xs ml-2 mb-2">Reset</button>
 	<Move {board} />
 </div>
 
