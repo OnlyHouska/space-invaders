@@ -38,7 +38,9 @@
 	}
 </script>
 
-<div class="absolute bottom-0 right-0 mr-2 mb-2 flex flex-row justify-center items-center">
-	<p class="text-xs mr-2 text-white/90">move&gt;</p>
-	<div class="cursor-move h-3 w-3 bg-white" bind:this={moveButton}></div>
-</div>
+{#if window.innerWidth > 768}
+	<div class="absolute bottom-0 right-0 mr-2 mb-2 flex flex-row justify-center items-center">
+		<p class="text-xs mr-2 text-white/90">move&gt;</p>
+		<div class="cursor-move h-3 w-3 bg-white" bind:this={moveButton}></div>
+	</div>
+{/if}

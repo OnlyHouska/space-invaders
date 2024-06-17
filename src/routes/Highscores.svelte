@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Move from './components/move.svelte';
 	import Close from './components/close.svelte';
-	import { eraseCookie } from '$lib/cookies';
 
 	export let close: () => void;
 
