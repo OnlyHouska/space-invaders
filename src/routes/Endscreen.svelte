@@ -16,13 +16,13 @@
 		<div id="game-over" class="flex w-full h-full justify-center flex-col gap-2 text-center">
 			<h1 class="text-3xl self-center text-red-600">GAME OVER</h1>
 			<p>SCORE: {score}</p>
-			<button on:click={restart}>Restart</button>
+			<button title="Restart" on:click={restart}>Restart</button>
 		</div>
 	{:else}
 		<div id="win" class="flex w-full h-full justify-center flex-col gap-2">
 			<h1 class="text-center text-3xl self-center text-green-600">YOU WIN!</h1>
 			<p>SCORE: {score.toString().padStart(4, '0')}</p>
-			<button on:click={restart}>Restart</button>
+			<button title="Restart" on:click={restart}>Restart</button>
 		</div>
 	{/if}
 </div>

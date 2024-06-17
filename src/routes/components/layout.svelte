@@ -24,7 +24,7 @@
 <button
 	on:click={setLayout}
 	class="absolute top-0 right-0 mt-2 mr-2 opacity-50 transition-all hover:opacity-100"
-  
+  title="Snap to the layout"
 >
 	<img {src} alt="layout" />
 </button>
