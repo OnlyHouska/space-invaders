@@ -8,20 +8,27 @@
 	let board: HTMLDivElement;
 
 	let strippedVersion = version.replace('v. ', '');
+
+	interface UpdateNotes {
+		[key: string]: string[];
+	}
+
+	const typedUpdateNotes: UpdateNotes = updateNotes;
+	const reversedVersions = Object.keys(typedUpdateNotes).reverse();
 </script>
 
 <div bind:this={board} class="popup_window overflow-y-auto" id="updateNotes">
 	<Close {close} />
 	<h1>Update notes</h1>
 	<div class="flex flex-col mt-3 gap-3">
-		{#each Object.keys(updateNotes) as ver}
+		{#each reversedVersions as ver}
 			<div class="flex flex-col gap-2">
 				<h2 class="version">
 					Version {ver}
 					{#if ver == strippedVersion}(Latest){/if}:
 				</h2>
-				<div>
-					{#each updateNotes[ver] as note}
+				<div>w
+					{#each typedUpdateNotes[ver] as note}
 						<p>{note}</p>
 					{/each}
 				</div>
