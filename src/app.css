@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@media only screen and (max-width: 1024px) {
+  .popup_window {
+    left: 36% !important;
+    top: 25% !important;
+  }
+}
+
 .popup_window {
   background: rgba(0, 0, 0, .95);
   border: white 2px solid;
