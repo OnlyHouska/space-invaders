@@ -13,9 +13,11 @@
 	});
 
 	function main() {
-		document.addEventListener('mousemove', onMouseMove);
-		document.addEventListener('mouseup', onMouseUp);
-		moveButton.addEventListener('mousedown', onMouseDown);
+		if (move) {
+			document.addEventListener('mousemove', onMouseMove);
+			document.addEventListener('mouseup', onMouseUp);
+			moveButton.addEventListener('mousedown', onMouseDown);
+		}
 	}
 
 	function onMouseDown(e: MouseEvent) {

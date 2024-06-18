@@ -1,4 +1,4 @@
-export let version: string = 'v. 0.1.4';
+export let version: string = 'v. 0.1.5';
 
 export let defaultColumns = 11;
 export let defaultRows = 4;

@@ -25,7 +25,7 @@
 		if (window.innerWidth < 768)
 			new Alert({
 				target: document.body,
-				props: { message: "I'm sorry, you can't play this game on this screen size" }
+				props: { message: "I'm sorry, you can't play this game on this screen size (yet)" }
 			});
 		else {
 			$playerName = null;
@@ -41,20 +41,12 @@
 		<h1 class="text-4xl text-center">Space Invaders</h1>
 	</div>
 	<div class="self-center text-lg flex flex-col gap-4 text-center">
-		<button
-			bind:this={playButton}
-			on:click={toggleGamePopup}
-			class="w-fit m-auto">Play</button
+		<button bind:this={playButton} on:click={toggleGamePopup} class="w-fit m-auto">Play</button>
+		<button bind:this={settingsButton} on:click={toggleSettingsPopup} class="w-fit m-auto"
+			>Settings</button
 		>
-		<button
-			bind:this={settingsButton}
-			on:click={toggleSettingsPopup}
-			class="w-fit m-auto">Settings</button
-		>
-		<button
-			bind:this={highscoresButton}
-			on:click={toggleHighscoresPopup}
-			class="w-fit">Highscores</button
+		<button bind:this={highscoresButton} on:click={toggleHighscoresPopup} class="w-fit"
+			>Highscores</button
 		>
 		<button
 			on:click={() => {

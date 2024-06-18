@@ -4,7 +4,7 @@
 
 @media only screen and (max-width: 1024px) {
   .popup_window {
-    left: 36% !important;
+    left: 20% !important;
     top: 25% !important;
   }
 }

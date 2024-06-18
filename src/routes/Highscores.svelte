@@ -23,13 +23,15 @@
 	};
 
 	function showAlert(): void {
-		let _alert = new Alert({
-			target: document.body,
-			props: {
-				message: 'Are you sure you want to reset highscores?',
-				buttons: [yesButton, noButton]
-			}
-		});
+		if (!document.getElementById('alert')) {
+			let _alert = new Alert({
+				target: document.body,
+				props: {
+					message: 'Are you sure you want to reset highscores?',
+					buttons: [yesButton, noButton]
+				}
+			});
+		}
 	}
 
 	function resetHighscores(): void {

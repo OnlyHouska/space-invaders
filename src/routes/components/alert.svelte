@@ -26,7 +26,10 @@
 		<h1 class="text-xs text-red-600 text-center">
 			{message}
 		</h1>
-		<div class="flex felx-row gap-2 text-sm jsutify-center m-auto" bind:this={buttonsContainer}></div>
+		<div
+			class="flex felx-row gap-2 text-sm jsutify-center m-auto"
+			bind:this={buttonsContainer}
+		></div>
 	</div>
 	<Move board={alert} />
 </div>
@@ -41,5 +44,7 @@
 		justify-content: center;
 		height: 150px;
 		max-width: 300px;
+		top: 36%;
+		left: 40%;
 	}
 </style>

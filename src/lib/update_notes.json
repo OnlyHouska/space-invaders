@@ -13,8 +13,14 @@
     "Modified responsivity on smaller devices",
     "Added highscores"
   ],
-  "0.1.4" : [
+  "0.1.4": [
     "Removed move button on small devices",
     "Added confirmation for score resetting"
+  ],
+  "0.1.5": [
+    "Fix: Position of reset highscores window",
+    "Fix: Clicking on Reset always opens new window",
+    "Fix: Windows not closing on small devices",
+    "UI changes on small devices"
   ]
 }
