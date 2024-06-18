@@ -23,5 +23,8 @@
     "Fix: Windows not closing on small devices",
     "UI changes on small devices",
     "Update notes changed to dropdown menu"
+  ],
+  "0.1.5.1": [
+    "Minor responsivity change"
   ]
 }
