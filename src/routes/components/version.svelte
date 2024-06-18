@@ -19,7 +19,11 @@
 	bind:this={board}
 >
 	<button title="Show patch notes" bind:this={notesButton} on:click={toggleUpdateNotes}>
-		<img src={note} alt="update notes" class="w-7 h-7 opacity-30 hover:opacity-60 transition-all" />
+		<img
+			src={note}
+			alt="update notes"
+			class="w-7 h-7 opacity-30 hover:opacity-60 transition-all hidden lg:block"
+		/>
 	</button>
 	<p class="text-xs text-white/30">{version}</p>
 </div>
