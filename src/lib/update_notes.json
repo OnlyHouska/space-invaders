@@ -21,6 +21,7 @@
     "Fix: Position of reset highscores window",
     "Fix: Clicking on Reset always opens new window",
     "Fix: Windows not closing on small devices",
-    "UI changes on small devices"
+    "UI changes on small devices",
+    "Update notes changed to dropdown menu"
   ]
 }

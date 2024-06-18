@@ -3,6 +3,10 @@
 	import Move from './move.svelte';
 	import { version } from '$lib/global';
 	import updateNotes from '$lib/update_notes.json';
+	import { onMount } from 'svelte';
+
+	let selectVersion: HTMLSelectElement;
+	let selectedVersion: string;
 
 	export let close: () => void;
 	let board: HTMLDivElement;
@@ -15,25 +19,43 @@
 
 	const typedUpdateNotes: UpdateNotes = updateNotes;
 	const reversedVersions = Object.keys(typedUpdateNotes).reverse();
+
+	onMount(() => {
+		selectedVersion = reversedVersions[0];
+	});
+
+	$: if (!typedUpdateNotes[selectedVersion]) {
+		selectedVersion = reversedVersions[0];
+	}
 </script>
 
-<div bind:this={board} class="popup_window overflow-y-auto" id="updateNotes">
+<div bind:this={board} class="relative popup_window overflow-y-auto flex flex-col" id="updateNotes">
 	<Close {close} />
-	<h1>Update notes</h1>
-	<div class="flex flex-col mt-3 gap-3">
-		{#each reversedVersions as ver}
-			<div class="flex flex-col gap-2">
-				<h2 class="version">
-					Update {ver}
-					{#if ver == strippedVersion}(Latest){/if}:
-				</h2>
-				<div>
-					{#each typedUpdateNotes[ver] as note}
-						<p>{note}</p>
-					{/each}
-				</div>
-			</div>
-		{/each}
+	<div class="flex flex-row justify-between">
+		<h1 class="text-lg">Update notes</h1>
+		<div class="flex flex-col mt-3 gap-3">
+			<select
+				class="bg-transparent text-xs w-fit ml-auto"
+				bind:this={selectVersion}
+				bind:value={selectedVersion}
+			>
+				{#each reversedVersions as ver}
+					<option class="version bg-black" value={ver}>
+						{ver}
+						{#if ver === strippedVersion}(Latest){/if}
+					</option>
+				{/each}
+			</select>
+		</div>
+	</div>
+	<div class="flex flex-col gap-2 mt-5">
+		{#if typedUpdateNotes[selectedVersion]}
+			{#each typedUpdateNotes[selectedVersion] as note}
+				<p>{note}</p>
+			{/each}
+		{:else}
+			<p>No update notes available for this version.</p>
+		{/if}
 	</div>
 	<Move {board} />
 </div>
@@ -42,12 +64,13 @@
 	.popup_window {
 		left: 52.3%;
 		top: 50%;
+		width: 700px;
+		font-size: 0.7rem;
 	}
 	.version {
 		color: rgba(255, 255, 255, 0.6);
 		text-decoration: underline;
 	}
-	.version ~ div,
 	.version {
 		font-size: x-small;
 	}
